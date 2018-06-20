@@ -9,7 +9,7 @@ class Form extends Component{
         step: 1
     }
 
-    nextStep = (values) =>{
+    nextStep = () =>{
         this.setState({step: this.state.step + 1})
     }
 
