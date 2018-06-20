@@ -1,16 +1,15 @@
 import React, { Component } from 'react'
-import FirstForm from './FirstForm'
-import SecondForm from './SecondForm';
-import ThirdForm from './ThirdForm';
-import './transition.css'
-import FourthStep from "../FourthStep";
+import FirstForm from '../../containers/form/FirstForm'
+import SecondForm from '../../containers/form/SecondForm';
+import ThirdForm from '../../containers/form/ThirdForm';
+import FourthStep from "./FourthStep";
 
 class Form extends Component{
     state = {
         step: 1
     }
 
-    nextStep = () =>{
+    nextStep = (values) =>{
         this.setState({step: this.state.step + 1})
     }
 

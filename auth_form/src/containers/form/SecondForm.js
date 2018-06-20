@@ -1,10 +1,14 @@
 import React, { Component } from 'react'
 import {Field, reduxForm} from 'redux-form'
-import validate from './validate'
+import validate from '../../validate'
 
 class SecondForm extends Component{
     render() {
-        const { handleSubmit, prev } = this.props
+        const {
+            handleSubmit,
+            prev
+        } = this.props
+
          return(
             <div>
                 <div className='square'>

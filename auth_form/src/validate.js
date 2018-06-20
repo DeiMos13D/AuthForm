@@ -56,6 +56,30 @@ const validate = values => {
         errors.cc_exp_date = 'date error'
     }
 
+    if(!values.country) {
+        errors.country = 'Required'
+    }
+
+    if(!values.telNum1) {
+        errors.telNum1 = 'Required'
+    } else if(!/^\d+$/.test(values.telNum1)) {
+        errors.telNum1 = 'phone error'
+    }
+
+    if(!!values.telNum2 && !/^\d+$/.test(values.telNum2)) {
+        errors.telNum2 = 'phone error'
+    }
+
+    if(!!values.telNum3 && !/^\d+$/.test(values.telNum3)) {
+        errors.telNum3 = 'phone error'
+    }
+
+    if(!values.statesInput) {
+        errors.statesInput = 'Required'
+    } else if(/^\d/.test(values.statesInput) && values.statesInput.length < 4) {
+        errors.statesInput = 'statesInput error'
+    }
+
     return errors
 }
 

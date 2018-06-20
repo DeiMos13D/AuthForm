@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import Form from './forms/Form'
-import NotFound from './NotFound'
+import NotFound from '../share/NotFound'
 
 class StepRoutes extends Component{
 
