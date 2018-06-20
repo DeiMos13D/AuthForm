@@ -5,7 +5,7 @@ import validate from '../../validate'
 import { connect } from 'react-redux'
 import { formValueSelector } from 'redux-form'
 
-const selector = formValueSelector('auth')
+export const selector = formValueSelector('auth')
 
 class FirstForm extends Component{
 
@@ -79,18 +79,22 @@ class FirstForm extends Component{
                         </div>
                         {
                             this.phoneNum.map(number=>
-                            <div key={number} style={{display: 'flex'}}>
+                            <div key={number}>
                                 {
                                     !!currentCountry ?
-                                        <Field name={`tel${number}`} type='select' component={ErrorField}
-                                               placeholder='Country' defaultValue={currentCountry} >
-                                            {this.currentTelNum(country.country)}
-                                        </Field> :
-                                        <label htmlFor={`tel${number}`}>Country Code</label>
+                                        <div  style={{display: 'flex'}}>
+                                            <Field name={`tel${number}`} type='select' component={ErrorField}
+                                                   placeholder='Country' defaultValue={currentCountry} >
+                                                {this.currentTelNum(country.country)}
+                                            </Field>
+                                            <Field name={`telNum${number}`} type='text'
+                                                component={ErrorField} placeholder={`Phone ${number}`}
+                                            />
+                                        </div>
+                                    :
+                                        null
                                 }
-                                <Field name={`telNum${number}`} type='text'
-                                       component={ErrorField} placeholder='Phone'
-                                />
+
                             </div>)
                         }
                         <div className='legal_select'>
