@@ -2,8 +2,6 @@
 .DS_Store
 /node_modules
 .idea/workspace.xml
-auth_form/.idea/workspace.xml
-.idea/workspace.xml
-.idea/workspace.xml
+/.idea
 *.xml
-.DS_Store
+
