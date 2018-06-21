@@ -4,8 +4,9 @@ import ErrorField from '../../share/ErrorField'
 import validate from '../../validate'
 import Cards from 'react-credit-cards'
 import { selector } from './FirstForm'
-import {connect} from "react-redux";
+import {connect} from "react-redux"
 import 'react-credit-cards/es/styles-compiled.css'
+import { getFocusedCardField } from '../../AC/creditCardFocused'
 
 class ThirdForm extends Component{
     componentWillUnmount() {
@@ -17,7 +18,8 @@ class ThirdForm extends Component{
             prev,
             pristine,
             submitting,
-            handleSubmit
+            handleSubmit,
+            getFocusedCardField
         } = this.props
         return(
             <div>
@@ -26,25 +28,26 @@ class ThirdForm extends Component{
                         <h3>Step 3 / 3</h3>
                     </div>
                     <div className='square_bottom'>
-                        <Cards
-                            number={this.props.number || ''}
-                            name={this.props.name || ''}
-                            expiry={this.props.data || ''}
-                            cvc={this.props.cvc || ''}
-                            // focused={this.props.state.focused}
-                        />
+
                         <form onSubmit={handleSubmit} style={{marginTop: '50px'}}>
+                            <Cards
+                                number={this.props.number || ''}
+                                name={this.props.name || ''}
+                                expiry={this.props.data || ''}
+                                cvc={this.props.cvc || ''}
+                                focused={this.props.focusedField}
+                            />
                             <div>
-                                <Field name='cc_number' type='text' component={ErrorField} placeholder='Credit Card number'/>
+                                <Field name='cc_number' onFocus={(e, name)=>getFocusedCardField(name)} type='text' component={ErrorField} placeholder='Credit Card number'/>
                             </div>
                             <div>
-                                <Field name='cc_name' type='text' normalize={value=>value.toUpperCase()}
+                                <Field name='cc_name' onFocus={(e, name)=>getFocusedCardField(name)} type='text' normalize={value=>value.toUpperCase()}
                                        component={ErrorField} placeholder='Credit Card name'
                                 />
                             </div>
                             <div style={{display: 'flex'}}>
-                                <Field name='cc_cvc' type='text' component={ErrorField} placeholder='Credit Card cvc'/>
-                                <Field name='cc_exp_date' type='text' component={ErrorField}
+                                <Field name='cc_cvc' onFocus={(e, name)=>getFocusedCardField(name)} type='text' component={ErrorField}  placeholder='Credit Card cvc'/>
+                                <Field name='cc_exp_date' onFocus={(e, name)=>getFocusedCardField(name)} type='text' component={ErrorField}
                                        placeholder='Credit Card expiration date'
                                 />
                             </div>
@@ -66,8 +69,9 @@ export default connect(
         name: selector(state, 'cc_name'),
         cvc: selector(state, 'cc_cvc'),
         data: selector(state, 'cc_exp_date'),
-        state: state
-    })
+        focusedField: state.creditCard.toJS().focusedField
+    }),
+    {getFocusedCardField}
 )(reduxForm({
     form: 'auth',
     destroyOnUnmount: false,

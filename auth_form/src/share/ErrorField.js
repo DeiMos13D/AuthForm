@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import {getFocusedCardField} from "../AC/creditCardFocused"
+import {connect} from "react-redux"
+
 
 class ErrorField extends Component{
 
@@ -7,13 +10,12 @@ class ErrorField extends Component{
             input,
             type,
             meta: {error, touched, dirty},
-            name,
+            input: {name},
             id,
             placeholder,
             children,
             defaultValue
         } = this.props
-
         let item
         if(type === 'select') {
             if(touched && error) {
@@ -29,6 +31,22 @@ class ErrorField extends Component{
                     {children}
                 </select>
             }
+        } else if(name === 'cc_number') {
+            item = (touched && error) ?
+                <input {...input} type={type} id={id} placeholder={placeholder} maxLength='16' className='error_style'/> :
+                <input {...input} type={type} id={id} placeholder={placeholder} maxLength='16'/>
+        } else if(name === 'cc_name') {
+            item = (touched && error) ?
+                <input {...input} type={type} id={id} placeholder={placeholder} className='error_style'/> :
+                <input {...input} type={type} id={id} placeholder={placeholder} />
+        } else if(name === 'cc_cvc') {
+            item = (touched && error) ?
+                <input {...input} type={type} id={id} placeholder={placeholder} maxLength='3' className='error_style'/> :
+                <input {...input} type={type} id={id} placeholder={placeholder} maxLength='3'/>
+        } else if(name === 'cc_exp_date') {
+            item = (touched && error) ?
+                <input {...input} type={type} id={id} placeholder={placeholder} maxLength='5' className='error_style'/> :
+                <input {...input} type={type} id={id} placeholder={placeholder} maxLength='5'/>
         } else {
             item = (touched && error) ?
                 <input {...input} type={type} id={id} placeholder={placeholder} className='error_style'/> :
@@ -43,4 +61,7 @@ class ErrorField extends Component{
     }
 }
 
-export default ErrorField
+export default connect(
+    null,
+    {getFocusedCardField}
+)(ErrorField)
