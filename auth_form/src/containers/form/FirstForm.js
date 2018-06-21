@@ -11,27 +11,27 @@ class FirstForm extends Component{
 
     phoneNum = [1,2,3]
 
-    currentTelNum = (countryArray) => {
+    countryOptions = (countryArray, toggle) => {
         const countryArrayOptions = countryArray
-            .map((value, index)=><option key={index} value={value.name}>{value.name} {value.dial_code}</option>)
-        return countryArrayOptions
-    }
-
-    countryOptions = (countryArray) => {
-        const countryArrayOptions = countryArray
-            .map((value, index)=><option key={index} value={value.name}>{value.name}</option>)
+            .map((value, index)=>
+                <option key={index} value={value.name}>{value.name}{toggle ? ` ${value.dial_code}` : ''}</option>
+            )
         return countryArrayOptions
     }
 
     currentStates = (country, currentCountry) => {
         const currentCountryObj = country.country.find(obj => obj.name === currentCountry).code
-        return !!country.states[currentCountryObj] ?
+        return country.states[currentCountryObj] ?
             <Field name='statesSelect' type='select' component={ErrorField}>{
                 country.states[currentCountryObj]
-                    .map((obj, index)=><option key={index} value={obj.code}>{obj.name}</option>)}
+                    .map((obj, index)=>
+                        <option key={index} value={obj.code}>{obj.name}</option>
+                    )}
             </Field> :
             <Field name='statesInput' type='text' component={ErrorField} placeholder='States'/>
     }
+
+
 
     render() {
         const {
@@ -62,11 +62,11 @@ class FirstForm extends Component{
                             <Field name='country' type='select' component={ErrorField}
                                    placeholder='Country' >
                                 <option> </option>
-                                {this.countryOptions(country.country)}
+                                {this.countryOptions(country.country, false)}
                             </Field>
                         </div>
                         <div>
-                            {!!currentCountry ? this.currentStates(country, currentCountry) : null }
+                            {currentCountry ? this.currentStates(country, currentCountry) : null }
                         </div>
                         <div>
                             <Field name='city' type='text' component={ErrorField} placeholder='City'/>
@@ -81,11 +81,11 @@ class FirstForm extends Component{
                             this.phoneNum.map(number=>
                             <div key={number}>
                                 {
-                                    !!currentCountry ?
+                                    currentCountry ?
                                         <div  style={{display: 'flex'}}>
                                             <Field name={`tel${number}`} type='select' component={ErrorField}
                                                    placeholder='Country' defaultValue={currentCountry} >
-                                                {this.currentTelNum(country.country)}
+                                                {this.countryOptions(country.country, true)}
                                             </Field>
                                             <Field name={`telNum${number}`} type='text'
                                                 component={ErrorField} placeholder={`Phone ${number}`}
@@ -94,7 +94,6 @@ class FirstForm extends Component{
                                     :
                                         null
                                 }
-
                             </div>)
                         }
                         <div className='legal_select'>

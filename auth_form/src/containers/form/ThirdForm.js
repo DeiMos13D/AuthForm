@@ -37,8 +37,8 @@ class ThirdForm extends Component{
                                 cvc={this.props.cvc || ''}
                                 focused={this.props.focusedField}
                             />
-                            <div>
-                                <Field name='cc_number' onFocus={(e, name)=>getFocusedCardField(name)} type='text' component={ErrorField} placeholder='Credit Card number'/>
+                            <div style={{marginTop: '50px'}}>
+                                <Field name='cc_number' onFocus={(e, name)=>getFocusedCardField(name)} maxLength='16' type='text' component={ErrorField} placeholder='Credit Card number'/>
                             </div>
                             <div>
                                 <Field name='cc_name' onFocus={(e, name)=>getFocusedCardField(name)} type='text' normalize={value=>value.toUpperCase()}
@@ -46,8 +46,8 @@ class ThirdForm extends Component{
                                 />
                             </div>
                             <div style={{display: 'flex'}}>
-                                <Field name='cc_cvc' onFocus={(e, name)=>getFocusedCardField(name)} type='text' component={ErrorField}  placeholder='Credit Card cvc'/>
-                                <Field name='cc_exp_date' onFocus={(e, name)=>getFocusedCardField(name)} type='text' component={ErrorField}
+                                <Field name='cc_cvc' onFocus={(e, name)=>getFocusedCardField(name)} maxLength='3' type='text' component={ErrorField}  placeholder='Credit Card cvc'/>
+                                <Field name='cc_exp_date' onFocus={(e, name)=>getFocusedCardField(name)} maxLength='5' type='text' component={ErrorField}
                                        placeholder='Credit Card expiration date'
                                 />
                             </div>

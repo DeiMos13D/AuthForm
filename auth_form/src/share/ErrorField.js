@@ -14,15 +14,17 @@ class ErrorField extends Component{
             id,
             placeholder,
             children,
-            defaultValue
+            defaultValue,
+            maxLength
         } = this.props
+
         let item
         if(type === 'select') {
             if(touched && error) {
                 item = <select  {...input} name={name} className='error_style'>
                     {children}
                 </select>
-            } else if(!!dirty) {
+            } else if(dirty) {
                 item = <select {...input} name={name}>
                     {children}
                 </select>
@@ -31,26 +33,10 @@ class ErrorField extends Component{
                     {children}
                 </select>
             }
-        } else if(name === 'cc_number') {
-            item = (touched && error) ?
-                <input {...input} type={type} id={id} placeholder={placeholder} maxLength='16' className='error_style'/> :
-                <input {...input} type={type} id={id} placeholder={placeholder} maxLength='16'/>
-        } else if(name === 'cc_name') {
-            item = (touched && error) ?
-                <input {...input} type={type} id={id} placeholder={placeholder} className='error_style'/> :
-                <input {...input} type={type} id={id} placeholder={placeholder} />
-        } else if(name === 'cc_cvc') {
-            item = (touched && error) ?
-                <input {...input} type={type} id={id} placeholder={placeholder} maxLength='3' className='error_style'/> :
-                <input {...input} type={type} id={id} placeholder={placeholder} maxLength='3'/>
-        } else if(name === 'cc_exp_date') {
-            item = (touched && error) ?
-                <input {...input} type={type} id={id} placeholder={placeholder} maxLength='5' className='error_style'/> :
-                <input {...input} type={type} id={id} placeholder={placeholder} maxLength='5'/>
         } else {
             item = (touched && error) ?
-                <input {...input} type={type} id={id} placeholder={placeholder} className='error_style'/> :
-                <input {...input} type={type} id={id} placeholder={placeholder} />
+                <input {...input} type={type} id={id} placeholder={placeholder} maxLength={maxLength} className='error_style'/> :
+                <input {...input} type={type} id={id} placeholder={placeholder} maxLength={maxLength} />
         }
 
         return(
