@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e939717-7fb3-4464-950a-c29af6b7a5ad" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth_form/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/auth_form/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth_form/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/auth_form/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth_form/src/containers/form/FirstForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/auth_form/src/containers/form/FirstForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/auth_form/src/containers/form/ThirdForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/auth_form/src/containers/form/ThirdForm.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -42,11 +38,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ThirdForm.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ThirdForm.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/auth_form/src/containers/form/ThirdForm.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="34" column="61" selection-start-line="34" selection-start-column="61" selection-end-line="34" selection-end-column="61" />
+            <state relative-caret-position="504">
+              <caret line="33" column="28" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="65" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -54,10 +50,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FirstForm.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FirstForm.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/auth_form/src/containers/form/FirstForm.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
+            <state relative-caret-position="2016">
               <caret line="96" lean-forward="true" selection-start-line="96" selection-end-line="96" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
@@ -67,6 +63,11 @@
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>phone</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -78,8 +79,8 @@
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/auth_form/src/App.js" />
         <option value="$PROJECT_DIR$/auth_form/src/components/forms/Form.js" />
-        <option value="$PROJECT_DIR$/auth_form/src/containers/form/ThirdForm.js" />
         <option value="$PROJECT_DIR$/auth_form/src/containers/form/FirstForm.js" />
+        <option value="$PROJECT_DIR$/auth_form/src/containers/form/ThirdForm.js" />
       </list>
     </option>
   </component>
@@ -92,7 +93,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/auth_form/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="100" />
     <option name="y" value="20" />
     <option name="width" value="1400" />
@@ -171,7 +172,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1529503521789</updated>
-      <workItem from="1529503525960" duration="3913000" />
+      <workItem from="1529503525960" duration="4322000" />
     </task>
     <task id="LOCAL-00001" summary="Country Form">
       <created>1529504639872</created>
@@ -184,11 +185,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3913000" />
+    <option name="totallyTimeSpent" value="4322000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1618" height="918" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21514958" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -266,22 +266,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/auth_form/src/containers/form/ThirdForm.js">
+    <entry file="file://$PROJECT_DIR$/auth_form/src/containers/form/FirstForm.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="34" column="61" selection-start-line="34" selection-start-column="61" selection-end-line="34" selection-end-column="61" />
+        <state relative-caret-position="2016">
+          <caret line="96" lean-forward="true" selection-start-line="96" selection-end-line="96" />
           <folding>
-            <element signature="e#0#40#0" expanded="true" />
+            <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/auth_form/src/containers/form/FirstForm.js">
+    <entry file="file://$PROJECT_DIR$/auth_form/src/containers/form/ThirdForm.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="96" lean-forward="true" selection-start-line="96" selection-end-line="96" />
+        <state relative-caret-position="504">
+          <caret line="33" column="28" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="65" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#0#40#0" expanded="true" />
           </folding>
         </state>
       </provider>

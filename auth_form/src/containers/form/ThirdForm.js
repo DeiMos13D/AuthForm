@@ -19,7 +19,6 @@ class ThirdForm extends Component{
             submitting,
             handleSubmit
         } = this.props
-        console.log(this.props.focused)
         return(
             <div>
                 <div className='square'>
@@ -32,7 +31,7 @@ class ThirdForm extends Component{
                             name={this.props.name || ''}
                             expiry={this.props.data || ''}
                             cvc={this.props.cvc || ''}
-                            focused={this.props.state.focused}
+                            // focused={this.props.state.focused}
                         />
                         <form onSubmit={handleSubmit} style={{marginTop: '50px'}}>
                             <div>
