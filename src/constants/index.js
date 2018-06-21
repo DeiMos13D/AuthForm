@@ -1,0 +1,1 @@
+export const FOCUSED_CARD_FIELD = 'FOCUSED_CARD_FIELD'
