@@ -32,28 +32,28 @@ const validate = values => {
         errors.radio = 'Required'
     }
     //********Credit Card Number
-    if(!values.cc_number){
-        errors.cc_number = 'Required'
-    } else if(!/^[0-9]{16}$/.test(values.cc_number)) {
-        errors.cc_number = 'cc_number to short'
+    if(!values.number){
+        errors.number = 'Required'
+    } else if(!/^[0-9]{16}$/.test(values.number)) {
+        errors.number = 'number to short'
     }
     //********Credit Card Name
-    if(!values.cc_name) {
-        errors.cc_name = 'Required'
-    } else if(!/^([A-Z]+[ ][A-Z]+)$/.test(values.cc_name)){
-        errors.cc_name = 'cc_number error'
+    if(!values.name) {
+        errors.name = 'Required'
+    } else if(!/^([A-Z]+[ ][A-Z]+)$/.test(values.name)){
+        errors.name = 'number error'
     }
     //********Credit Card CVC
-    if(!values.cc_cvc) {
-        errors.cc_cvc = 'Required'
-    } else if(!/^[0-9]{3}$/.test(values.cc_cvc)) {
-        errors.cc_cvc = 'cc_cvc error'
+    if(!values.cvc) {
+        errors.cvc = 'Required'
+    } else if(!/^[0-9]{3}$/.test(values.cvc)) {
+        errors.cvc = 'cvc error'
     }
     //********Credit Card expiration date
-    if(!values.cc_exp_date) {
-        errors.cc_exp_date = 'Required'
-    } else if(!/^(\d{2}\/\d{2})$/.test(values.cc_exp_date)) {
-        errors.cc_exp_date = 'date error'
+    if(!values.expiry) {
+        errors.expiry = 'Required'
+    } else if(!/^(\d{2}\/\d{2})$/.test(values.expiry)) {
+        errors.expiry = 'date error'
     }
 
     if(!values.country) {

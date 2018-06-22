@@ -6,11 +6,18 @@ import Cards from 'react-credit-cards'
 import { selector } from './FirstForm'
 import {connect} from "react-redux"
 import 'react-credit-cards/es/styles-compiled.css'
+
 import { getFocusedCardField } from '../../AC/creditCardFocused'
 
 class ThirdForm extends Component{
-    componentWillUnmount() {
-        this.props.destroy()
+
+    state={
+        focused: null
+    }
+
+    cardAnimation = (e, name) => {
+        this.props.getFocusedCardField(name)
+        this.setState({focused:name})
     }
 
     render() {
@@ -18,8 +25,7 @@ class ThirdForm extends Component{
             prev,
             pristine,
             submitting,
-            handleSubmit,
-            getFocusedCardField
+            handleSubmit
         } = this.props
         return(
             <div>
@@ -35,19 +41,20 @@ class ThirdForm extends Component{
                                 name={this.props.name || ''}
                                 expiry={this.props.data || ''}
                                 cvc={this.props.cvc || ''}
-                                focused={this.props.focusedField}
+                                focused={this.state.focused}
                             />
                             <div style={{marginTop: '50px'}}>
-                                <Field name='cc_number' onFocus={(e, name)=>getFocusedCardField(name)} maxLength='16' type='text' component={ErrorField} placeholder='Credit Card number'/>
+                                <Field name='number' onFocus={this.cardAnimation}
+                                     maxLength='16' type='text' component={ErrorField} placeholder='Credit Card number'/>
                             </div>
                             <div>
-                                <Field name='cc_name' onFocus={(e, name)=>getFocusedCardField(name)} type='text' normalize={value=>value.toUpperCase()}
+                                <Field name='name' onFocus={this.cardAnimation} type='text' normalize={value=>value.toUpperCase()}
                                        component={ErrorField} placeholder='Credit Card name'
                                 />
                             </div>
                             <div style={{display: 'flex'}}>
-                                <Field name='cc_cvc' onFocus={(e, name)=>getFocusedCardField(name)} maxLength='3' type='text' component={ErrorField}  placeholder='Credit Card cvc'/>
-                                <Field name='cc_exp_date' onFocus={(e, name)=>getFocusedCardField(name)} maxLength='5' type='text' component={ErrorField}
+                                <Field name='cvc' onFocus={this.cardAnimation} maxLength='3' type='text' component={ErrorField}  placeholder='Credit Card cvc'/>
+                                <Field name='expiry' onFocus={this.cardAnimation} maxLength='5' type='text' component={ErrorField}
                                        placeholder='Credit Card expiration date'
                                 />
                             </div>
@@ -65,10 +72,10 @@ class ThirdForm extends Component{
 
 export default connect(
     state => ({
-        number: selector(state, 'cc_number'),
-        name: selector(state, 'cc_name'),
-        cvc: selector(state, 'cc_cvc'),
-        data: selector(state, 'cc_exp_date'),
+        number: selector(state, 'number'),
+        name: selector(state, 'name'),
+        cvc: selector(state, 'cvc'),
+        data: selector(state, 'expiry'),
         focusedField: state.creditCard.toJS().focusedField
     }),
     {getFocusedCardField}
